@@ -19,19 +19,6 @@ app.use(bodyParser.urlencoded({extended: false}))
 // parse application/json
 app.use(bodyParser.json())
 
-// Mongoose connect mongodb
-mongoose.connect(config.database);
-let db = mongoose.connection;
-
-// Check db connection
-db.once('open', function () {
-    console.log('Connected to mongodb');
-})
-
-// Check for DB errors
-db.on('error', function (err) {
-    console.log(err);
-});
 
 // Load View Engine
 app.set('views', path.join(__dirname, 'views'));
